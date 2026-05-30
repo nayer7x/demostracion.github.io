@@ -1,0 +1,1760 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- ╔══════════════════════════════════════╗
+     ║  EASY EDIT: Agency name & info here  ║
+     ╚══════════════════════════════════════╝ -->
+<title>WebPro Studio | Diseño y Desarrollo Web Premium</title>
+<meta name="description" content="Transformamos ideas en sitios web que generan clientes. Diseño web profesional, tiendas online, landing pages y más.">
+<meta name="keywords" content="diseño web, desarrollo web, sitios web profesionales, tiendas online, SEO, landing pages">
+<meta name="author" content="WebPro Studio">
+<meta property="og:title" content="WebPro Studio | Diseño Web Premium">
+<meta property="og:description" content="Transformamos ideas en sitios web que generan clientes. +100 proyectos entregados con 98% satisfacción.">
+<meta property="og:type" content="website">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+/* ═══════════════════════════════════════════════════
+   ★  BRAND CONFIG — EDIT THIS SECTION EASILY  ★
+   ═══════════════════════════════════════════════════ */
+:root {
+  /* Brand */
+  --brand-primary:   #0ea5e9;   /* Electric Blue  */
+  --brand-secondary: #a855f7;   /* Neon Purple     */
+  --brand-accent:    #c084fc;   /* Light Purple    */
+
+  /* Derived glows */
+  --glow-blue:   rgba( 14,165,233, 0.35);
+  --glow-purple: rgba(168, 85,247, 0.30);
+
+  /* Backgrounds */
+  --bg-900: #030712;
+  --bg-800: #0d1117;
+  --bg-700: #111827;
+  --bg-glass: rgba(255,255,255,0.03);
+  --border:       rgba(255,255,255,0.07);
+  --border-blue:  rgba( 14,165,233,0.30);
+  --border-purple:rgba(168, 85,247,0.25);
+
+  /* Text */
+  --tx-100: #f8fafc;
+  --tx-300: #cbd5e1;
+  --tx-500: #64748b;
+
+  /* Gradients */
+  --grad:      linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
+  --grad-soft: linear-gradient(135deg, rgba(14,165,233,.12), rgba(168,85,247,.12));
+  --grad-card: linear-gradient(135deg, rgba(14,165,233,.08), rgba(168,85,247,.08));
+
+  /* Typography */
+  --ff-head: 'Syne', sans-serif;
+  --ff-body: 'DM Sans', sans-serif;
+
+  /* Radii */
+  --r-sm: 12px; --r-md: 18px; --r-lg: 24px; --r-xl: 32px;
+
+  /* Transitions */
+  --t-fast: .18s ease; --t-base: .3s ease; --t-slow: .5s ease;
+}
+
+/* ═══════════════════════════════
+   RESET & BASE
+   ═══════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:var(--ff-body);background:var(--bg-900);color:var(--tx-100);line-height:1.65;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;font-family:var(--ff-body)}
+ul{list-style:none}
+::selection{background:var(--brand-primary);color:#fff}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--bg-900)}
+::-webkit-scrollbar-thumb{background:var(--grad);border-radius:3px}
+
+/* ═══════════════════════════════
+   UTILITIES
+   ═══════════════════════════════ */
+.container{max-width:1180px;margin:0 auto;padding:0 24px}
+.sec{padding:100px 0;position:relative;z-index:2}
+.sec-alt{background:var(--bg-800)}
+
+.gr-text{
+  background:var(--grad);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text
+}
+.tag{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:5px 16px;border-radius:100px;
+  background:rgba(14,165,233,.1);border:1px solid rgba(14,165,233,.3);
+  font-size:.78rem;font-weight:700;color:var(--brand-primary);
+  letter-spacing:.09em;text-transform:uppercase;margin-bottom:18px
+}
+.sec-hd{text-align:center;margin-bottom:64px}
+.sec-hd h2{font-family:var(--ff-head);font-size:clamp(2rem,4vw,3rem);font-weight:800;line-height:1.12;margin-bottom:14px}
+.sec-hd p{font-size:1.05rem;color:var(--tx-300);max-width:600px;margin:0 auto;line-height:1.75}
+
+/* BUTTONS */
+.btn{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:13px 26px;border-radius:var(--r-sm);
+  font-size:.93rem;font-weight:600;border:none;
+  transition:all var(--t-base);position:relative;overflow:hidden;
+  white-space:nowrap
+}
+.btn::after{
+  content:'';position:absolute;inset:0;
+  background:rgba(255,255,255,.11);opacity:0;
+  transition:opacity var(--t-fast)
+}
+.btn:hover::after{opacity:1}
+.btn-prim{background:var(--grad);color:#fff;box-shadow:0 0 28px var(--glow-blue)}
+.btn-prim:hover{transform:translateY(-2px);box-shadow:0 0 46px var(--glow-blue)}
+.btn-ghost{background:transparent;color:var(--tx-100);border:1px solid var(--border);backdrop-filter:blur(12px)}
+.btn-ghost:hover{border-color:var(--brand-primary);color:var(--brand-primary);transform:translateY(-2px);box-shadow:0 0 20px var(--glow-blue)}
+.btn-wa{background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;box-shadow:0 0 24px rgba(37,211,102,.3)}
+.btn-wa:hover{transform:translateY(-2px);box-shadow:0 0 44px rgba(37,211,102,.5)}
+
+/* ═══════════════════════════════
+   AMBIENT BACKGROUND
+   ═══════════════════════════════ */
+.bg-wrap{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.bg-grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(14,165,233,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(14,165,233,.025) 1px,transparent 1px);
+  background-size:64px 64px
+}
+.orb{position:absolute;border-radius:50%;filter:blur(90px);animation:orbDrift 22s ease-in-out infinite}
+.orb1{width:700px;height:700px;background:radial-gradient(circle,rgba(14,165,233,.16),transparent 70%);top:-250px;left:-200px}
+.orb2{width:550px;height:550px;background:radial-gradient(circle,rgba(168,85,247,.13),transparent 70%);bottom:-150px;right:-150px;animation-delay:-8s}
+.orb3{width:380px;height:380px;background:radial-gradient(circle,rgba(14,165,233,.07),transparent 70%);top:55%;left:55%;animation-delay:-15s}
+@keyframes orbDrift{
+  0%,100%{transform:translate(0,0) scale(1)}
+  33%{transform:translate(50px,-50px) scale(1.08)}
+  66%{transform:translate(-35px,35px) scale(.93)}
+}
+
+/* ═══════════════════════════════
+   NAVBAR
+   ═══════════════════════════════ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  padding:20px 0;transition:all var(--t-base)
+}
+.nav.scrolled{
+  padding:13px 0;background:rgba(3,7,18,.84);
+  backdrop-filter:blur(24px);
+  border-bottom:1px solid var(--border)
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.nav-logo{
+  font-family:var(--ff-head);font-size:1.45rem;font-weight:800;
+  background:var(--grad);-webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;background-clip:text;
+  letter-spacing:-.02em;flex-shrink:0
+}
+.nav-links{display:flex;gap:32px}
+.nav-links a{
+  font-size:.88rem;font-weight:500;color:var(--tx-300);
+  transition:color var(--t-fast);position:relative
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:-5px;left:0;
+  width:0;height:2px;background:var(--grad);
+  border-radius:1px;transition:width var(--t-base)
+}
+.nav-links a:hover{color:var(--tx-100)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{display:flex;align-items:center;gap:14px}
+
+/* Hamburger */
+.ham{
+  display:none;flex-direction:column;gap:5px;
+  background:none;border:none;padding:6px
+}
+.ham span{
+  width:22px;height:2px;background:var(--tx-100);
+  border-radius:1px;transition:all var(--t-base);display:block
+}
+
+/* Mobile menu */
+.mob{
+  display:none;position:fixed;inset:0;
+  background:rgba(3,7,18,.97);backdrop-filter:blur(24px);
+  z-index:999;flex-direction:column;align-items:center;
+  justify-content:center;gap:36px
+}
+.mob.open{display:flex}
+.mob a{
+  font-family:var(--ff-head);font-size:2rem;font-weight:700;
+  transition:color var(--t-fast)
+}
+.mob a:hover{color:var(--brand-primary)}
+.mob-close{
+  position:absolute;top:22px;right:22px;
+  background:none;border:none;color:var(--tx-100);font-size:1.4rem
+}
+
+/* ═══════════════════════════════
+   HERO
+   ═══════════════════════════════ */
+.hero{
+  min-height:100vh;display:flex;align-items:center;
+  padding:130px 0 80px;position:relative;overflow:hidden
+}
+.hero .container{display:grid;grid-template-columns:1fr 520px;gap:60px;align-items:center}
+.hero-content{position:relative;z-index:2}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:7px 18px;border-radius:100px;margin-bottom:28px;
+  background:rgba(14,165,233,.08);border:1px solid rgba(14,165,233,.22);
+  font-size:.78rem;font-weight:700;color:var(--brand-primary);
+  letter-spacing:.08em;text-transform:uppercase;
+  animation:fadeUp .6s ease both
+}
+.hero-badge .dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--brand-primary);animation:blink 2s infinite
+}
+@keyframes blink{0%,100%{box-shadow:0 0 0 0 var(--glow-blue)}50%{box-shadow:0 0 0 7px transparent}}
+.hero h1{
+  font-family:var(--ff-head);
+  font-size:clamp(2.6rem,4.5vw,4rem);
+  font-weight:800;line-height:1.1;margin-bottom:22px;
+  animation:fadeUp .7s .1s ease both
+}
+.hero p{
+  font-size:1.1rem;color:var(--tx-300);line-height:1.8;
+  max-width:520px;margin-bottom:38px;
+  animation:fadeUp .7s .2s ease both
+}
+.hero-btns{display:flex;flex-wrap:wrap;gap:14px;animation:fadeUp .7s .3s ease both}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+
+/* Hero visual */
+.hero-visual{position:relative;z-index:1}
+.hv-float{animation:hvFloat 6s ease-in-out infinite}
+@keyframes hvFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
+
+.hv-glow{
+  position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none
+}
+.hv-glow1{
+  width:320px;height:320px;
+  background:radial-gradient(circle,rgba(14,165,233,.45),transparent 70%);
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  animation:hvGlow 5s ease-in-out infinite
+}
+.hv-glow2{
+  width:200px;height:200px;
+  background:radial-gradient(circle,rgba(168,85,247,.4),transparent 70%);
+  top:10%;right:5%;animation:hvGlow 5s 2.5s ease-in-out infinite
+}
+@keyframes hvGlow{0%,100%{opacity:.6;transform:translate(-50%,-50%) scale(1)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.18)}}
+
+/* Browser mockup */
+.bm{
+  background:rgba(13,17,23,.88);
+  border:1px solid rgba(14,165,233,.22);
+  border-radius:18px;overflow:hidden;
+  box-shadow:0 0 80px rgba(14,165,233,.18),0 30px 80px rgba(0,0,0,.6);
+  backdrop-filter:blur(20px);position:relative;z-index:2
+}
+.bm-bar{
+  padding:11px 15px;background:rgba(255,255,255,.025);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:8px
+}
+.bm-dots{display:flex;gap:5px}
+.bm-d{width:10px;height:10px;border-radius:50%}
+.bm-url{
+  flex:1;background:rgba(255,255,255,.05);
+  border:1px solid var(--border);border-radius:6px;
+  padding:3px 11px;font-size:.7rem;color:var(--tx-500);font-family:monospace
+}
+.bm-body{padding:18px}
+.cl{height:9px;background:rgba(255,255,255,.06);border-radius:5px;margin-bottom:9px;animation:shimmer 3s ease-in-out infinite}
+.cl:nth-child(2){width:75%;animation-delay:.2s}
+.cl:nth-child(3){width:88%;animation-delay:.4s}
+.cl:nth-child(4){width:62%;animation-delay:.6s}
+.cl:nth-child(5){width:91%;animation-delay:.8s}
+.cl:nth-child(6){width:72%;animation-delay:1s}
+.cl:nth-child(7){width:55%;animation-delay:1.2s}
+@keyframes shimmer{0%,100%{opacity:.25}50%{opacity:.65}}
+
+.bm-preview{
+  margin-top:14px;
+  background:var(--grad-card);
+  border:1px solid var(--border-blue);
+  border-radius:12px;padding:14px
+}
+.bm-stats{display:flex;justify-content:space-around}
+.bm-stat-n{
+  font-family:var(--ff-head);font-size:1.15rem;font-weight:800;
+  background:var(--grad);-webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;background-clip:text
+}
+.bm-stat-l{font-size:.68rem;color:var(--tx-500);margin-top:2px}
+
+/* Floating chips */
+.chip{
+  position:absolute;display:flex;align-items:center;gap:8px;
+  padding:9px 14px;border-radius:10px;backdrop-filter:blur(18px);
+  font-size:.77rem;font-weight:700;white-space:nowrap;z-index:3;
+  background:rgba(13,17,23,.92);border:1px solid var(--border);
+  animation:chipFloat 4s ease-in-out infinite
+}
+.chip1{top:-10px;right:-24px;color:var(--brand-primary);border-color:var(--border-blue);animation-delay:-2s}
+.chip2{bottom:20px;left:-32px;color:var(--brand-accent);border-color:rgba(192,132,252,.3)}
+.chip3{top:38%;right:-46px;color:#22c55e;border-color:rgba(34,197,94,.3);animation-delay:-1.2s}
+@keyframes chipFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+
+/* ═══════════════════════════════
+   STATS
+   ═══════════════════════════════ */
+.stats-wrap{padding:50px 0;position:relative;z-index:2}
+.stats-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  background:var(--border);border-radius:var(--r-lg);
+  overflow:hidden;gap:1px;border:1px solid var(--border)
+}
+.stat{
+  padding:48px 30px;text-align:center;background:var(--bg-800);
+  position:relative;transition:background var(--t-base)
+}
+.stat::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:var(--grad);transform:scaleX(0);transition:transform var(--t-base)
+}
+.stat:hover{background:var(--bg-700)}
+.stat:hover::after{transform:scaleX(1)}
+.stat-n{
+  font-family:var(--ff-head);font-size:2.8rem;font-weight:800;
+  background:var(--grad);-webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;background-clip:text;
+  line-height:1;margin-bottom:8px
+}
+.stat-l{font-size:.88rem;color:var(--tx-300);font-weight:500}
+
+/* ═══════════════════════════════
+   SERVICES
+   ═══════════════════════════════ */
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.srv{
+  background:var(--bg-glass);border:1px solid var(--border);
+  border-radius:var(--r-md);padding:34px 30px;
+  position:relative;overflow:hidden;transition:all var(--t-base)
+}
+.srv::before{
+  content:'';position:absolute;inset:0;
+  background:var(--grad-card);opacity:0;transition:opacity var(--t-base)
+}
+.srv:hover{transform:translateY(-6px);border-color:var(--border-blue);box-shadow:0 0 40px var(--glow-blue)}
+.srv:hover::before{opacity:1}
+.srv-icon{
+  width:52px;height:52px;border-radius:13px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;margin-bottom:22px;
+  position:relative;z-index:1;transition:all var(--t-base)
+}
+.srv-icon.blue{background:rgba(14,165,233,.1);border:1px solid rgba(14,165,233,.2);color:var(--brand-primary)}
+.srv-icon.purple{background:rgba(168,85,247,.1);border:1px solid rgba(168,85,247,.2);color:var(--brand-secondary)}
+.srv:hover .srv-icon.blue{background:rgba(14,165,233,.22);box-shadow:0 0 22px var(--glow-blue)}
+.srv:hover .srv-icon.purple{background:rgba(168,85,247,.22);box-shadow:0 0 22px var(--glow-purple)}
+.srv h3{font-family:var(--ff-head);font-size:1.15rem;font-weight:700;margin-bottom:10px;position:relative;z-index:1}
+.srv p{font-size:.88rem;color:var(--tx-300);line-height:1.73;position:relative;z-index:1}
+
+/* ═══════════════════════════════
+   PRICING
+   ═══════════════════════════════ */
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:start}
+.pc{
+  background:var(--bg-glass);border:1px solid var(--border);
+  border-radius:var(--r-lg);padding:38px 30px;
+  position:relative;transition:all var(--t-base)
+}
+.pc:hover{transform:translateY(-5px)}
+.pc.feat{
+  background:var(--grad-card);
+  border:1px solid var(--border-blue);
+  box-shadow:0 0 60px rgba(14,165,233,.1),0 0 80px rgba(168,85,247,.07);
+  transform:scale(1.03)
+}
+.pc.feat:hover{transform:scale(1.03) translateY(-5px)}
+.pc-badge{
+  position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+  background:var(--grad);color:#fff;
+  font-size:.73rem;font-weight:700;padding:5px 20px;
+  border-radius:100px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap
+}
+.pc h3{font-family:var(--ff-head);font-size:1.35rem;font-weight:700;margin-bottom:6px}
+.pc-desc{font-size:.83rem;color:var(--tx-500);margin-bottom:26px}
+.pc-price{margin-bottom:24px;display:flex;align-items:baseline;gap:2px}
+.pc-cur{font-size:1.2rem;font-weight:600;color:var(--tx-300);align-self:flex-start;margin-top:10px}
+.pc-amt{
+  font-family:var(--ff-head);font-size:3.4rem;font-weight:800;
+  background:var(--grad);-webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;background-clip:text
+}
+.pc-per{font-size:.83rem;color:var(--tx-500);margin-left:4px}
+.pc-feats{margin-bottom:30px}
+.pc-feats li{
+  display:flex;align-items:flex-start;gap:11px;
+  padding:8px 0;font-size:.88rem;color:var(--tx-300);
+  border-bottom:1px solid var(--border)
+}
+.pc-feats li:last-child{border:none}
+.pc-feats li i{font-size:.8rem;margin-top:3px;flex-shrink:0}
+.pc-feats li i.ok{color:var(--brand-primary)}
+.pc-feats li i.no{color:var(--tx-500)}
+.pc-feats li.dim{opacity:.38}
+.pc-btn{width:100%;display:flex;justify-content:center}
+
+/* ═══════════════════════════════
+   PORTFOLIO
+   ═══════════════════════════════ */
+.port-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.port-card{
+  position:relative;border-radius:var(--r-md);
+  overflow:hidden;aspect-ratio:4/3;cursor:pointer
+}
+.port-card-bg{position:absolute;inset:0;transition:transform var(--t-slow)}
+.port-card:hover .port-card-bg{transform:scale(1.05)}
+.port-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(3,7,18,.96) 0%,rgba(3,7,18,.35) 55%,transparent 100%);
+  opacity:0;transition:opacity var(--t-base);
+  display:flex;flex-direction:column;justify-content:flex-end;padding:22px
+}
+.port-card:hover .port-overlay{opacity:1}
+.port-cat{font-size:.72rem;font-weight:700;color:var(--brand-primary);text-transform:uppercase;letter-spacing:.1em;margin-bottom:7px}
+.port-title{font-family:var(--ff-head);font-size:1.15rem;font-weight:700;margin-bottom:10px}
+.port-tags{display:flex;flex-wrap:wrap;gap:5px}
+.pt{
+  padding:3px 10px;background:rgba(14,165,233,.14);
+  border:1px solid rgba(14,165,233,.28);
+  border-radius:100px;font-size:.7rem;color:var(--brand-primary)
+}
+.port-ext{
+  position:absolute;top:16px;right:16px;
+  width:36px;height:36px;background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:9px;display:flex;align-items:center;justify-content:center;
+  font-size:.8rem;opacity:0;transform:translateY(-8px);
+  transition:all var(--t-base);backdrop-filter:blur(8px)
+}
+.port-card:hover .port-ext{opacity:1;transform:translateY(0)}
+
+/* Fake project screens */
+.pf-inner{
+  position:absolute;inset:16px;
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:11px;overflow:hidden;background:rgba(255,255,255,.02)
+}
+.pf-hdr{height:28px;background:rgba(255,255,255,.04);display:flex;align-items:center;padding:0 11px;gap:5px}
+.pf-dot{width:7px;height:7px;border-radius:50%}
+.pf-body{padding:12px}
+.pf-line{height:8px;border-radius:4px;margin-bottom:8px;background:rgba(255,255,255,.07)}
+.pf-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:12px}
+.pf-blk{height:44px;border-radius:7px}
+
+.pp1{background:linear-gradient(145deg,#08142a,#0f2545,#1a3a6e)}
+.pp2{background:linear-gradient(145deg,#1a0533,#2d0f5e,#3d1580)}
+.pp3{background:linear-gradient(145deg,#0a1f1a,#0f3028,#134030)}
+.pp4{background:linear-gradient(145deg,#200a0a,#3d1212,#5a1a1a)}
+.pp5{background:linear-gradient(145deg,#0a1520,#0f2535,#153550)}
+.pp6{background:linear-gradient(145deg,#1a1500,#2e2600,#3d3400)}
+
+/* ═══════════════════════════════
+   PROCESS
+   ═══════════════════════════════ */
+.proc-wrap{max-width:880px;margin:0 auto;position:relative}
+.proc-line{
+  position:absolute;left:50%;top:0;bottom:0;width:2px;
+  background:linear-gradient(to bottom,var(--brand-primary),var(--brand-secondary),var(--brand-primary));
+  transform:translateX(-50%);opacity:.25
+}
+.proc-line-fill{
+  position:absolute;left:50%;top:0;width:2px;height:0;
+  background:var(--grad);transform:translateX(-50%);
+  transition:height 1.4s ease;border-radius:1px
+}
+.proc-step{
+  display:flex;align-items:flex-start;gap:36px;
+  margin-bottom:52px;position:relative
+}
+.proc-step:last-child{margin-bottom:0}
+.proc-step:nth-child(even){flex-direction:row-reverse}
+.proc-step:nth-child(even) .proc-box{text-align:right}
+.proc-half{flex:1}
+.proc-mid{display:flex;flex-direction:column;align-items:center;z-index:2}
+.proc-node{
+  width:52px;height:52px;background:var(--grad);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-family:var(--ff-head);font-weight:800;font-size:1.05rem;color:#fff;
+  box-shadow:0 0 28px var(--glow-blue);flex-shrink:0
+}
+.proc-box{
+  background:var(--bg-glass);border:1px solid var(--border);
+  border-radius:var(--r-md);padding:22px 26px;transition:all var(--t-base)
+}
+.proc-box:hover{border-color:var(--border-blue);transform:translateX(4px)}
+.proc-step:nth-child(even) .proc-box:hover{transform:translateX(-4px)}
+.proc-box h3{font-family:var(--ff-head);font-size:1.08rem;font-weight:700;margin-bottom:7px}
+.proc-box p{font-size:.86rem;color:var(--tx-300);line-height:1.73}
+
+/* ═══════════════════════════════
+   TESTIMONIALS
+   ═══════════════════════════════ */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.testi{
+  background:var(--bg-glass);border:1px solid var(--border);
+  border-radius:var(--r-md);padding:30px;transition:all var(--t-base)
+}
+.testi:hover{transform:translateY(-4px);border-color:var(--border-blue);box-shadow:0 0 36px var(--glow-blue)}
+.testi-q{
+  font-size:3rem;line-height:.4;margin-bottom:18px;
+  font-family:Georgia,serif;
+  background:var(--grad);-webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;background-clip:text
+}
+.testi p{font-size:.88rem;color:var(--tx-300);line-height:1.8;margin-bottom:20px;font-style:italic}
+.testi-stars{display:flex;gap:4px;color:#f59e0b;font-size:.85rem;margin-bottom:18px}
+.testi-author{display:flex;align-items:center;gap:13px}
+.testi-av{
+  width:44px;height:44px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--ff-head);font-weight:700;color:#fff;flex-shrink:0
+}
+.testi-name{font-weight:700;font-size:.92rem}
+.testi-role{font-size:.77rem;color:var(--tx-500)}
+
+/* ═══════════════════════════════
+   FAQ
+   ═══════════════════════════════ */
+.faq-list{max-width:760px;margin:0 auto}
+.faq-item{border:1px solid var(--border);border-radius:var(--r-md);margin-bottom:10px;overflow:hidden;transition:border-color var(--t-base)}
+.faq-item.open{border-color:var(--border-blue)}
+.faq-q{
+  width:100%;display:flex;align-items:center;justify-content:space-between;
+  padding:20px 26px;background:none;border:none;text-align:left;
+  color:var(--tx-100);font-size:.95rem;font-weight:600;gap:14px;
+  transition:color var(--t-fast)
+}
+.faq-q:hover{color:var(--brand-primary)}
+.faq-ic{
+  width:26px;height:26px;background:rgba(14,165,233,.1);
+  border:1px solid rgba(14,165,233,.2);border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.75rem;color:var(--brand-primary);flex-shrink:0;
+  transition:all var(--t-base)
+}
+.faq-item.open .faq-ic{background:var(--grad);border-color:transparent;color:#fff;transform:rotate(45deg)}
+.faq-ans{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.faq-ans-in{padding:0 26px 20px;font-size:.88rem;color:var(--tx-300);line-height:1.82}
+
+/* ═══════════════════════════════
+   CTA
+   ═══════════════════════════════ */
+.cta-box{
+  background:var(--grad-card);
+  border:1px solid var(--border-blue);
+  border-radius:var(--r-xl);padding:80px 60px;text-align:center;
+  position:relative;overflow:hidden
+}
+.cta-box::before{
+  content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);
+  width:700px;height:200px;
+  background:radial-gradient(ellipse,rgba(14,165,233,.22),transparent 70%);
+  pointer-events:none
+}
+.cta-box h2{font-family:var(--ff-head);font-size:clamp(1.9rem,4vw,3rem);font-weight:800;margin-bottom:18px;position:relative}
+.cta-box p{font-size:1.05rem;color:var(--tx-300);max-width:540px;margin:0 auto 38px;line-height:1.75;position:relative}
+.cta-btns{display:flex;justify-content:center;flex-wrap:wrap;gap:14px;position:relative}
+
+/* ═══════════════════════════════
+   FOOTER
+   ═══════════════════════════════ */
+footer{
+  padding:60px 0 28px;position:relative;z-index:2;
+  background:var(--bg-800);border-top:1px solid var(--border)
+}
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:50px}
+.ft-logo{
+  font-family:var(--ff-head);font-size:1.7rem;font-weight:800;
+  background:var(--grad);-webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;background-clip:text;
+  display:inline-block;margin-bottom:16px
+}
+.ft-desc{font-size:.86rem;color:var(--tx-500);line-height:1.82;margin-bottom:22px}
+.ft-social{display:flex;gap:10px}
+.ft-sc{
+  width:38px;height:38px;background:var(--bg-glass);
+  border:1px solid var(--border);border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.9rem;color:var(--tx-300);transition:all var(--t-base)
+}
+.ft-sc:hover{background:var(--grad);border-color:transparent;color:#fff;transform:translateY(-2px)}
+.ft-col h4{font-family:var(--ff-head);font-size:.92rem;font-weight:700;margin-bottom:18px}
+.ft-links{display:flex;flex-direction:column;gap:10px}
+.ft-links a{font-size:.85rem;color:var(--tx-500);transition:color var(--t-fast)}
+.ft-links a:hover{color:var(--brand-primary)}
+.ft-contact{display:flex;flex-direction:column;gap:12px}
+.ft-ci{
+  display:flex;align-items:flex-start;gap:11px;
+  font-size:.84rem;color:var(--tx-500);transition:color var(--t-fast)
+}
+.ft-ci:hover{color:var(--brand-primary)}
+.ft-ci i{color:var(--brand-primary);width:15px;flex-shrink:0;margin-top:2px}
+.ft-bot{
+  padding-top:22px;border-top:1px solid var(--border);
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px
+}
+.ft-copy{font-size:.8rem;color:var(--tx-500)}
+.ft-bot-links{display:flex;gap:22px}
+.ft-bot-links a{font-size:.8rem;color:var(--tx-500);transition:color var(--t-fast)}
+.ft-bot-links a:hover{color:var(--brand-primary)}
+
+/* ═══════════════════════════════
+   SCROLL REVEAL
+   ═══════════════════════════════ */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.rv.on{opacity:1;transform:translateY(0)}
+.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}
+.rv.d4{transition-delay:.4s}.rv.d5{transition-delay:.5s}
+
+/* ═══════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════ */
+@media(max-width:1100px){
+  .hero .container{grid-template-columns:1fr 440px;gap:40px}
+}
+@media(max-width:950px){
+  .hero .container{grid-template-columns:1fr;max-width:680px}
+  .hero-visual{display:none}
+  .hero{min-height:auto;padding:110px 0 70px;text-align:center}
+  .hero p{margin:0 auto 38px}
+  .hero-btns{justify-content:center}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .srv-grid{grid-template-columns:repeat(2,1fr)}
+  .price-grid{grid-template-columns:1fr;max-width:460px;margin:0 auto}
+  .pc.feat{transform:none}.pc.feat:hover{transform:translateY(-5px)}
+  .port-grid{grid-template-columns:repeat(2,1fr)}
+  .testi-grid{grid-template-columns:repeat(2,1fr)}
+  .ft-grid{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+  .ham{display:flex}
+  .nav-cta .btn-ghost,.nav-cta .btn-prim{display:none}
+}
+@media(max-width:640px){
+  :root{--sec-pad:70px 0}
+  .sec{padding:70px 0}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .srv-grid{grid-template-columns:1fr}
+  .port-grid{grid-template-columns:1fr}
+  .proc-line,.proc-line-fill{display:none}
+  .proc-step,.proc-step:nth-child(even){flex-direction:column}
+  .proc-step:nth-child(even) .proc-box{text-align:left}
+  .testi-grid{grid-template-columns:1fr}
+  .cta-box{padding:50px 28px}
+  .ft-grid{grid-template-columns:1fr}
+  .ft-bot{flex-direction:column;text-align:center}
+}
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE ADICIONAL — TABLET & MÓVIL COMPLETO
+   ═══════════════════════════════════════════════ */
+
+/* ── Tablet grande (768px – 1024px) ── */
+@media(max-width:1024px) and (min-width:769px){
+  .container{padding:0 32px}
+  .hero .container{grid-template-columns:1fr 380px;gap:36px}
+  .hero h1{font-size:clamp(2.2rem,4vw,3.2rem)}
+  .stats-grid{grid-template-columns:repeat(4,1fr)}
+  .srv-grid{grid-template-columns:repeat(2,1fr);gap:18px}
+  .price-grid{grid-template-columns:repeat(3,1fr);gap:16px}
+  .pc{padding:28px 20px}
+  .pc-amt{font-size:2.8rem}
+  .port-grid{grid-template-columns:repeat(2,1fr);gap:18px}
+  .testi-grid{grid-template-columns:repeat(2,1fr);gap:18px}
+  .proc-wrap{max-width:100%}
+  .ft-grid{grid-template-columns:1.5fr 1fr 1fr 1fr;gap:32px}
+}
+
+/* ── Tablet mediano (600px – 768px) ── */
+@media(max-width:768px){
+  .container{padding:0 20px}
+  .sec{padding:64px 0}
+  .sec-hd{margin-bottom:44px}
+  .sec-hd h2{font-size:clamp(1.7rem,5vw,2.4rem)}
+  .sec-hd p{font-size:.95rem}
+
+  /* Navbar */
+  .nav{padding:16px 0}
+  .nav.scrolled{padding:10px 0}
+  .nav-logo{font-size:1.25rem}
+  .nav-links{display:none}
+  .ham{display:flex}
+  .nav-cta .btn-ghost,.nav-cta .btn-prim{display:none}
+
+  /* Hero */
+  .hero{padding:100px 0 60px;text-align:center}
+  .hero .container{grid-template-columns:1fr}
+  .hero-visual{display:none}
+  .hero h1{font-size:clamp(2rem,6vw,2.8rem)}
+  .hero p{font-size:1rem;margin:0 auto 30px}
+  .hero-btns{justify-content:center;flex-direction:column;align-items:center}
+  .hero-btns .btn{width:100%;max-width:320px;justify-content:center}
+
+  /* Stats */
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .stat{padding:32px 20px}
+  .stat-n{font-size:2.2rem}
+
+  /* Services */
+  .srv-grid{grid-template-columns:1fr;gap:14px}
+
+  /* Pricing */
+  .price-grid{grid-template-columns:1fr;max-width:400px;margin:0 auto;gap:16px}
+  .pc.feat{transform:none}
+  .pc.feat:hover{transform:translateY(-5px)}
+
+  /* Portfolio */
+  .port-grid{grid-template-columns:repeat(2,1fr);gap:14px}
+
+  /* Process */
+  .proc-line,.proc-line-fill{display:none}
+  .proc-step,.proc-step:nth-child(even){flex-direction:column;align-items:flex-start;gap:16px}
+  .proc-step:nth-child(even) .proc-box{text-align:left}
+  .proc-step:nth-child(odd) .proc-half:first-child{display:none}
+.proc-step:nth-child(even) .proc-half:last-child{display:none}
+.proc-step:nth-child(even) .proc-mid{order:-1}
+  .proc-mid{flex-direction:row;align-self:flex-start}
+
+  /* Testimonials */
+  .testi-grid{grid-template-columns:1fr;gap:14px}
+
+  /* CTA */
+  .cta-box{padding:44px 24px}
+  .cta-box h2{font-size:clamp(1.6rem,5vw,2.2rem)}
+  .cta-btns{flex-direction:column;align-items:center}
+  .cta-btns .btn{width:100%;max-width:320px;justify-content:center}
+
+  /* Footer */
+  .ft-grid{grid-template-columns:1fr 1fr;gap:32px}
+  .ft-bot{flex-direction:column;text-align:center;gap:10px}
+  .ft-bot-links{justify-content:center}
+}
+
+/* ── Móvil (hasta 480px) ── */
+@media(max-width:480px){
+  .container{padding:0 16px}
+  .sec{padding:54px 0}
+  .sec-hd{margin-bottom:36px}
+
+  /* Navbar */
+  .nav{padding:14px 0}
+  .nav-logo{font-size:1.15rem}
+
+  /* Hero */
+  .hero{padding:88px 0 50px}
+  .hero-badge{font-size:.7rem;padding:6px 14px}
+  .hero h1{font-size:clamp(1.75rem,7vw,2.4rem);margin-bottom:16px}
+  .hero p{font-size:.93rem}
+  .hero-btns .btn{font-size:.87rem;padding:12px 20px}
+
+  /* Stats */
+  .stats-grid{grid-template-columns:1fr 1fr;gap:1px}
+  .stat{padding:26px 14px}
+  .stat-n{font-size:1.9rem}
+  .stat-l{font-size:.8rem}
+
+  /* Services */
+  .srv{padding:26px 22px}
+  .srv h3{font-size:1.05rem}
+
+  /* Pricing */
+  .price-grid{max-width:100%}
+  .pc{padding:28px 20px}
+  .pc-amt{font-size:2.8rem}
+
+  /* Portfolio */
+  .port-grid{grid-template-columns:1fr;gap:12px}
+
+  /* Process */
+  .proc-node{width:42px;height:42px;font-size:.9rem}
+  .proc-box{padding:18px 20px}
+
+  /* Testimonials */
+  .testi{padding:24px 20px}
+
+  /* FAQ */
+  .faq-q{padding:16px 18px;font-size:.88rem}
+  .faq-ans-in{padding:0 18px 16px}
+
+  /* CTA */
+  .cta-box{padding:36px 18px;border-radius:var(--r-lg)}
+  .cta-btns .btn{font-size:.87rem}
+
+  /* Footer */
+  .ft-grid{grid-template-columns:1fr;gap:28px}
+  .ft-logo{font-size:1.45rem}
+  .ft-bot{text-align:center}
+  .ft-bot-links{flex-wrap:wrap;justify-content:center;gap:14px}
+
+  /* Botones globales */
+  .btn{font-size:.87rem;padding:11px 20px}
+
+  /* Mobile menu */
+  .mob a{font-size:1.6rem}
+}
+
+/* ── Móvil muy pequeño (hasta 360px) ── */
+@media(max-width:360px){
+  .container{padding:0 14px}
+  .hero h1{font-size:1.65rem}
+  .stat-n{font-size:1.7rem}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .pc-amt{font-size:2.4rem}
+  .cta-box{padding:30px 14px}
+  .mob a{font-size:1.4rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════ AMBIENT BG ══════════ -->
+<div class="bg-wrap">
+  <div class="bg-grid"></div>
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+</div>
+
+<!-- ══════════════════════════════════
+     NAVBAR
+     ══════════════════════════════════ -->
+<nav class="nav" id="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <!-- ★ EDIT AGENCY NAME HERE ★ -->
+      <a href="#" class="nav-logo">WEBLY</a>
+
+      <ul class="nav-links">
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#planes">Planes</a></li>
+        <li><a href="#portafolio">Portafolio</a></li>
+        <li><a href="#proceso">Proceso</a></li>
+        <li><a href="#testimonios">Testimonios</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+
+      <div class="nav-cta">
+        <a href="#contacto" class="btn btn-prim">
+          <i class="fas fa-rocket"></i> Solicitar Cotización
+        </a>
+        <button class="ham" id="ham" aria-label="Menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mob" id="mob">
+  <button class="mob-close" id="mobClose"><i class="fas fa-times"></i></button>
+  <a href="#servicios" class="mob-lnk">Servicios</a>
+  <a href="#planes" class="mob-lnk">Planes</a>
+  <a href="#portafolio" class="mob-lnk">Portafolio</a>
+  <a href="#proceso" class="mob-lnk">Proceso</a>
+  <a href="#testimonios" class="mob-lnk">Testimonios</a>
+  <a href="#faq" class="mob-lnk">FAQ</a>
+  <a href="#contacto" class="btn btn-prim" style="margin-top:8px">Solicitar Cotización</a>
+</div>
+
+<!-- ══════════════════════════════════
+     HERO
+     ══════════════════════════════════ -->
+<section class="hero" id="inicio">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        Agencia de Desarrollo Web Premium
+      </div>
+
+      <h1>
+        Transformamos Ideas<br>
+        en Sitios Web que<br>
+        <span class="gr-text">Generan Clientes</span>
+      </h1>
+
+      <p>Diseñamos páginas web modernas, rápidas y optimizadas para aumentar tus ventas y fortalecer tu presencia digital.</p>
+
+      <div class="hero-btns">
+        <a href="#contacto" class="btn btn-prim">
+          <i class="fas fa-paper-plane"></i> Solicitar Cotización
+        </a>
+        <a href="#portafolio" class="btn btn-ghost">
+          <i class="fas fa-eye"></i> Ver Portafolio
+        </a>
+      </div>
+    </div>
+
+    <!-- Tech Visual -->
+    <div class="hero-visual">
+      <div class="hv-glow hv-glow1"></div>
+      <div class="hv-glow hv-glow2"></div>
+      <div class="hv-float" style="position:relative">
+        <div class="bm">
+          <div class="bm-bar">
+            <div class="bm-dots">
+              <div class="bm-d" style="background:#ff5f57"></div>
+              <div class="bm-d" style="background:#ffbd2e"></div>
+              <div class="bm-d" style="background:#28c940"></div>
+            </div>
+            <div class="bm-url">webprostudio.com</div>
+          </div>
+          <div class="bm-body">
+            <div class="cl"></div><div class="cl"></div>
+            <div class="cl"></div><div class="cl"></div>
+            <div class="cl"></div><div class="cl"></div>
+            <div class="cl"></div>
+            <div class="bm-preview">
+              <div class="bm-stats">
+                <div style="text-align:center">
+                  <div class="bm-stat-n">+100</div>
+                  <div class="bm-stat-l">Proyectos</div>
+                </div>
+                <div style="text-align:center">
+                  <div class="bm-stat-n">98%</div>
+                  <div class="bm-stat-l">Satisfacción</div>
+                </div>
+                <div style="text-align:center">
+                  <div class="bm-stat-n">+5</div>
+                  <div class="bm-stat-l">Años</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="chip chip1"><i class="fas fa-check-circle"></i> 100% Responsive</div>
+        <div class="chip chip2"><i class="fas fa-bolt"></i> Carga Ultra Rápida</div>
+        <div class="chip chip3"><i class="fas fa-shield-alt"></i> SEO Optimizado</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     STATS
+     ══════════════════════════════════ -->
+<div class="stats-wrap">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat rv">
+        <div class="stat-n" data-target="100" data-prefix="+">0</div>
+        <div class="stat-l">Proyectos Entregados</div>
+      </div>
+      <div class="stat rv d1">
+        <div class="stat-n" data-target="98" data-suffix="%">0</div>
+        <div class="stat-l">Clientes Satisfechos</div>
+      </div>
+      <div class="stat rv d2">
+        <div class="stat-n" data-target="5" data-prefix="+">0</div>
+        <div class="stat-l">Años de Experiencia</div>
+      </div>
+      <div class="stat rv d3">
+        <div class="stat-n">24/7</div>
+        <div class="stat-l">Soporte Personalizado</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     SERVICES
+     ══════════════════════════════════ -->
+<section class="sec" id="servicios">
+  <div class="container">
+    <div class="sec-hd">
+      <div class="tag rv"><i class="fas fa-code"></i> Nuestros Servicios</div>
+      <h2 class="rv d1">Todo lo que necesitas para<br><span class="gr-text">dominar el mundo digital</span></h2>
+      <p class="rv d2">Soluciones web completas y personalizadas para impulsar tu negocio al siguiente nivel.</p>
+    </div>
+    <div class="srv-grid">
+      <div class="srv rv">
+        <div class="srv-icon blue"><i class="fas fa-paint-brush"></i></div>
+        <h3>Diseño Web Profesional</h3>
+        <p>Creamos diseños únicos que reflejan la identidad de tu marca y capturan la atención desde el primer segundo.</p>
+      </div>
+      <div class="srv rv d1">
+        <div class="srv-icon purple"><i class="fas fa-shopping-cart"></i></div>
+        <h3>Tiendas Online</h3>
+        <p>E-commerce completos y optimizados para convertir visitantes en compradores con una experiencia excepcional.</p>
+      </div>
+      <div class="srv rv d2">
+        <div class="srv-icon blue"><i class="fas fa-rocket"></i></div>
+        <h3>Landing Pages</h3>
+        <p>Páginas de alta conversión diseñadas para capturar leads y maximizar el retorno de tu inversión publicitaria.</p>
+      </div>
+      <div class="srv rv d1">
+        <div class="srv-icon purple"><i class="fas fa-building"></i></div>
+        <h3>Sistemas Empresariales</h3>
+        <p>Plataformas a medida para automatizar procesos, gestionar información y potenciar la productividad.</p>
+      </div>
+      <div class="srv rv d2">
+        <div class="srv-icon blue"><i class="fas fa-search"></i></div>
+        <h3>Optimización SEO</h3>
+        <p>Posicionamos tu sitio en los primeros resultados de Google para que tus clientes te encuentren primero.</p>
+      </div>
+      <div class="srv rv d3">
+        <div class="srv-icon purple"><i class="fas fa-headset"></i></div>
+        <h3>Mantenimiento y Soporte</h3>
+        <p>Mantenemos tu sitio actualizado, seguro y al máximo rendimiento con soporte técnico cuando lo necesitas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     PRICING
+     ══════════════════════════════════ -->
+<section class="sec sec-alt" id="planes">
+  <div class="container">
+    <div class="sec-hd">
+      <div class="tag rv"><i class="fas fa-tags"></i> Planes y Precios</div>
+      <h2 class="rv d1">Inversión transparente,<br><span class="gr-text">resultados excepcionales</span></h2>
+      <p class="rv d2">Elige el plan perfecto para tu negocio. Todos incluyen diseño premium y entrega puntual.</p>
+    </div>
+    <div class="price-grid">
+      <!-- Plan Básico -->
+      <div class="pc rv">
+        <h3>Plan Básico</h3>
+        <div class="pc-desc">Ideal para empezar tu presencia digital</div>
+        <div class="pc-price">
+          <span class="pc-cur">$</span>
+          <span class="pc-amt">499</span>
+          <span class="pc-per">MXN</span>
+        </div>
+        <ul class="pc-feats">
+          <li><i class="fas fa-check ok"></i> Diseño profesional personalizado</li>
+          <li><i class="fas fa-check ok"></i> Hasta 5 secciones</li>
+          <li><i class="fas fa-check ok"></i> 100% Responsive (móvil/tablet)</li>
+          <li><i class="fas fa-check ok"></i> Formulario de contacto</li>
+          <li><i class="fas fa-check ok"></i> Entrega en 7 días hábiles</li>
+          <li class="dim"><i class="fas fa-times no"></i> SEO avanzado</li>
+          <li class="dim"><i class="fas fa-times no"></i> Panel administrativo</li>
+          <li class="dim"><i class="fas fa-times no"></i> Integraciones externas</li>
+        </ul>
+        <div class="pc-btn">
+          <a href="#contacto" class="btn btn-ghost" style="width:100%;justify-content:center">
+            Solicitar este Plan <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Plan Profesional (Featured) -->
+      <div class="pc feat rv d1">
+        <div class="pc-badge">⭐ Más Popular</div>
+        <h3>Plan Profesional</h3>
+        <div class="pc-desc">La opción preferida por nuestros clientes</div>
+        <div class="pc-price">
+          <span class="pc-cur">$</span>
+          <span class="pc-amt">999</span>
+          <span class="pc-per">MXN</span>
+        </div>
+        <ul class="pc-feats">
+          <li><i class="fas fa-check ok"></i> Todo lo del Plan Básico</li>
+          <li><i class="fas fa-check ok"></i> SEO inicial optimizado</li>
+          <li><i class="fas fa-check ok"></i> Galería de imágenes</li>
+          <li><i class="fas fa-check ok"></i> Integración con WhatsApp</li>
+          <li><i class="fas fa-check ok"></i> Animaciones premium</li>
+          <li><i class="fas fa-check ok"></i> Panel administrativo</li>
+          <li><i class="fas fa-check ok"></i> Hasta 10 secciones</li>
+          <li class="dim"><i class="fas fa-times no"></i> Integraciones externas</li>
+        </ul>
+        <div class="pc-btn">
+          <a href="#contacto" class="btn btn-prim" style="width:100%;justify-content:center">
+            Solicitar este Plan <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Plan Empresarial -->
+      <div class="pc rv d2">
+        <h3>Plan Empresarial</h3>
+        <div class="pc-desc">Solución completa para empresas en crecimiento</div>
+        <div class="pc-price">
+          <span class="pc-cur">$</span>
+          <span class="pc-amt">2499</span>
+          <span class="pc-per">MXN</span>
+        </div>
+        <ul class="pc-feats">
+          <li><i class="fas fa-check ok"></i> Diseño 100% personalizado</li>
+          <li><i class="fas fa-check ok"></i> Funciones avanzadas a medida</li>
+          <li><i class="fas fa-check ok"></i> Sistema de reservaciones/cotizaciones</li>
+          <li><i class="fas fa-check ok"></i> Integraciones externas (CRM, ERP)</li>
+          <li><i class="fas fa-check ok"></i> Máxima optimización SEO</li>
+          <li><i class="fas fa-check ok"></i> Soporte prioritario 6 meses</li>
+          <li><i class="fas fa-check ok"></i> Capacitación incluida</li>
+          <li><i class="fas fa-check ok"></i> Páginas ilimitadas</li>
+        </ul>
+        <div class="pc-btn">
+          <a href="#contacto" class="btn btn-ghost" style="width:100%;justify-content:center">
+            Solicitar este Plan <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     PORTFOLIO
+     ══════════════════════════════════ -->
+<section class="sec" id="portafolio">
+  <div class="container">
+    <div class="sec-hd">
+      <div class="tag rv"><i class="fas fa-briefcase"></i> Portafolio</div>
+      <h2 class="rv d1">Proyectos que hablan<br><span class="gr-text">por sí solos</span></h2>
+      <p class="rv d2">Cada proyecto es una historia de éxito. Conoce algunas de las webs que hemos transformado.</p>
+    </div>
+    <div class="port-grid">
+
+      <!-- P1 -->
+      <div class="port-card rv">
+        <div class="port-card-bg pp1">
+          <div class="pf-inner">
+            <div class="pf-hdr">
+              <div class="pf-dot" style="background:#ff5f57"></div>
+              <div class="pf-dot" style="background:#ffbd2e"></div>
+              <div class="pf-dot" style="background:#28c940"></div>
+            </div>
+            <div class="pf-body">
+              <div class="pf-line" style="width:80%;background:rgba(14,165,233,.35)"></div>
+              <div class="pf-line" style="width:62%"></div>
+              <div class="pf-line" style="width:91%"></div>
+              <div class="pf-grid">
+                <div class="pf-blk" style="background:rgba(14,165,233,.2)"></div>
+                <div class="pf-blk" style="background:rgba(14,165,233,.2)"></div>
+                <div class="pf-blk" style="background:rgba(14,165,233,.1)"></div>
+                <div class="pf-blk" style="background:rgba(14,165,233,.1)"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="port-overlay">
+          <div class="port-cat">E-Commerce</div>
+          <div class="port-title">TechStore Pro</div>
+          <div class="port-tags">
+            <span class="pt">React</span><span class="pt">Next.js</span><span class="pt">Stripe</span>
+          </div>
+        </div>
+        <div class="port-ext"><i class="fas fa-arrow-up-right-from-square"></i></div>
+      </div>
+
+      <!-- P2 -->
+      <div class="port-card rv d1">
+        <div class="port-card-bg pp2">
+          <div class="pf-inner">
+            <div class="pf-hdr">
+              <div class="pf-dot" style="background:#ff5f57"></div>
+              <div class="pf-dot" style="background:#ffbd2e"></div>
+              <div class="pf-dot" style="background:#28c940"></div>
+            </div>
+            <div class="pf-body">
+              <div class="pf-line" style="width:70%;background:rgba(168,85,247,.4)"></div>
+              <div class="pf-line" style="width:90%"></div>
+              <div class="pf-grid">
+                <div class="pf-blk" style="background:rgba(168,85,247,.25);grid-column:span 2"></div>
+                <div class="pf-blk" style="background:rgba(168,85,247,.15)"></div>
+                <div class="pf-blk" style="background:rgba(168,85,247,.15)"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="port-overlay">
+          <div class="port-cat" style="color:var(--brand-accent)">Agencia Digital</div>
+          <div class="port-title">InnovateMX Agency</div>
+          <div class="port-tags">
+            <span class="pt" style="color:var(--brand-accent);border-color:rgba(192,132,252,.3)">Vue.js</span>
+            <span class="pt" style="color:var(--brand-accent);border-color:rgba(192,132,252,.3)">GSAP</span>
+            <span class="pt" style="color:var(--brand-accent);border-color:rgba(192,132,252,.3)">Tailwind</span>
+          </div>
+        </div>
+        <div class="port-ext"><i class="fas fa-arrow-up-right-from-square"></i></div>
+      </div>
+
+      <!-- P3 -->
+      <div class="port-card rv d2">
+        <div class="port-card-bg pp3">
+          <div class="pf-inner">
+            <div class="pf-hdr">
+              <div class="pf-dot" style="background:#ff5f57"></div>
+              <div class="pf-dot" style="background:#ffbd2e"></div>
+              <div class="pf-dot" style="background:#28c940"></div>
+            </div>
+            <div class="pf-body">
+              <div class="pf-line" style="width:82%;background:rgba(34,197,94,.3)"></div>
+              <div class="pf-line" style="width:65%"></div>
+              <div class="pf-grid">
+                <div class="pf-blk" style="background:rgba(34,197,94,.15)"></div>
+                <div class="pf-blk" style="background:rgba(34,197,94,.15)"></div>
+                <div class="pf-blk" style="background:rgba(34,197,94,.1);grid-column:span 2"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="port-overlay">
+          <div class="port-cat" style="color:#22c55e">Sistema Empresarial</div>
+          <div class="port-title">Clínica Digital 360</div>
+          <div class="port-tags">
+            <span class="pt" style="color:#22c55e;border-color:rgba(34,197,94,.3)">Laravel</span>
+            <span class="pt" style="color:#22c55e;border-color:rgba(34,197,94,.3)">MySQL</span>
+            <span class="pt" style="color:#22c55e;border-color:rgba(34,197,94,.3)">React</span>
+          </div>
+        </div>
+        <div class="port-ext"><i class="fas fa-arrow-up-right-from-square"></i></div>
+      </div>
+
+      <!-- P4 -->
+      <div class="port-card rv d1">
+        <div class="port-card-bg pp4">
+          <div class="pf-inner">
+            <div class="pf-hdr">
+              <div class="pf-dot" style="background:#ff5f57"></div>
+              <div class="pf-dot" style="background:#ffbd2e"></div>
+              <div class="pf-dot" style="background:#28c940"></div>
+            </div>
+            <div class="pf-body">
+              <div class="pf-line" style="width:60%;background:rgba(248,113,113,.3)"></div>
+              <div class="pf-line" style="width:85%"></div>
+              <div class="pf-grid">
+                <div class="pf-blk" style="background:rgba(248,113,113,.2);grid-column:span 2"></div>
+                <div class="pf-blk" style="background:rgba(248,113,113,.15)"></div>
+                <div class="pf-blk" style="background:rgba(248,113,113,.15)"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="port-overlay">
+          <div class="port-cat" style="color:#f87171">Moda & Retail</div>
+          <div class="port-title">StyleMX Fashion Store</div>
+          <div class="port-tags">
+            <span class="pt" style="color:#f87171;border-color:rgba(248,113,113,.3)">Shopify</span>
+            <span class="pt" style="color:#f87171;border-color:rgba(248,113,113,.3)">Liquid</span>
+          </div>
+        </div>
+        <div class="port-ext"><i class="fas fa-arrow-up-right-from-square"></i></div>
+      </div>
+
+      <!-- P5 -->
+      <div class="port-card rv d2">
+        <div class="port-card-bg pp5">
+          <div class="pf-inner">
+            <div class="pf-hdr">
+              <div class="pf-dot" style="background:#ff5f57"></div>
+              <div class="pf-dot" style="background:#ffbd2e"></div>
+              <div class="pf-dot" style="background:#28c940"></div>
+            </div>
+            <div class="pf-body">
+              <div class="pf-line" style="width:75%;background:rgba(14,165,233,.25)"></div>
+              <div class="pf-line" style="width:50%"></div>
+              <div class="pf-grid">
+                <div class="pf-blk" style="background:rgba(14,165,233,.15)"></div>
+                <div class="pf-blk" style="background:rgba(14,165,233,.15)"></div>
+                <div class="pf-blk" style="background:rgba(14,165,233,.1)"></div>
+                <div class="pf-blk" style="background:rgba(14,165,233,.1)"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="port-overlay">
+          <div class="port-cat">Inmobiliaria</div>
+          <div class="port-title">Vertex Real Estate</div>
+          <div class="port-tags">
+            <span class="pt">Next.js</span>
+            <span class="pt">Framer</span>
+            <span class="pt">CMS</span>
+          </div>
+        </div>
+        <div class="port-ext"><i class="fas fa-arrow-up-right-from-square"></i></div>
+      </div>
+
+      <!-- P6 -->
+      <div class="port-card rv d3">
+        <div class="port-card-bg pp6">
+          <div class="pf-inner">
+            <div class="pf-hdr">
+              <div class="pf-dot" style="background:#ff5f57"></div>
+              <div class="pf-dot" style="background:#ffbd2e"></div>
+              <div class="pf-dot" style="background:#28c940"></div>
+            </div>
+            <div class="pf-body">
+              <div class="pf-line" style="width:88%;background:rgba(251,191,36,.3)"></div>
+              <div class="pf-line" style="width:65%"></div>
+              <div class="pf-grid">
+                <div class="pf-blk" style="background:rgba(251,191,36,.2)"></div>
+                <div class="pf-blk" style="background:rgba(251,191,36,.2)"></div>
+                <div class="pf-blk" style="background:rgba(251,191,36,.12);grid-column:span 2"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="port-overlay">
+          <div class="port-cat" style="color:#fbbf24">Restaurante</div>
+          <div class="port-title">GourmetChef Online</div>
+          <div class="port-tags">
+            <span class="pt" style="color:#fbbf24;border-color:rgba(251,191,36,.3)">WordPress</span>
+            <span class="pt" style="color:#fbbf24;border-color:rgba(251,191,36,.3)">WooCommerce</span>
+          </div>
+        </div>
+        <div class="port-ext"><i class="fas fa-arrow-up-right-from-square"></i></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     PROCESS
+     ══════════════════════════════════ -->
+<section class="sec sec-alt" id="proceso">
+  <div class="container">
+    <div class="sec-hd">
+      <div class="tag rv"><i class="fas fa-diagram-project"></i> Nuestro Proceso</div>
+      <h2 class="rv d1">Cómo transformamos<br><span class="gr-text">tu visión en realidad</span></h2>
+      <p class="rv d2">Un proceso claro y eficiente que garantiza calidad en cada etapa del proyecto.</p>
+    </div>
+    <div class="proc-wrap">
+      <div class="proc-line"></div>
+      <div class="proc-line-fill" id="procFill"></div>
+
+      <div class="proc-step rv">
+        <div class="proc-half"></div>
+        <div class="proc-mid"><div class="proc-node">1</div></div>
+        <div class="proc-half">
+          <div class="proc-box">
+            <h3>Reunión Inicial</h3>
+            <p>Conocemos tu negocio, objetivos y audiencia para diseñar una estrategia digital completamente a tu medida.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="proc-step rv d1">
+        <div class="proc-half">
+          <div class="proc-box">
+            <h3>Diseño Visual</h3>
+            <p>Creamos prototipos y maquetas visuales de tu sitio para que apruebes el diseño antes del desarrollo.</p>
+          </div>
+        </div>
+        <div class="proc-mid"><div class="proc-node">2</div></div>
+        <div class="proc-half"></div>
+      </div>
+
+      <div class="proc-step rv d2">
+        <div class="proc-half"></div>
+        <div class="proc-mid"><div class="proc-node">3</div></div>
+        <div class="proc-half">
+          <div class="proc-box">
+            <h3>Desarrollo</h3>
+            <p>Programamos con las tecnologías más modernas, asegurando velocidad, seguridad y escalabilidad.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="proc-step rv d1">
+        <div class="proc-half">
+          <div class="proc-box">
+            <h3>Pruebas & QA</h3>
+            <p>Revisamos cada detalle: compatibilidad en dispositivos, velocidad de carga y experiencia de usuario.</p>
+          </div>
+        </div>
+        <div class="proc-mid"><div class="proc-node">4</div></div>
+        <div class="proc-half"></div>
+      </div>
+
+      <div class="proc-step rv d2" style="margin-bottom:0">
+        <div class="proc-half"></div>
+        <div class="proc-mid"><div class="proc-node">5</div></div>
+        <div class="proc-half">
+          <div class="proc-box">
+            <h3>Lanzamiento 🚀</h3>
+            <p>Publicamos tu sitio y te acompañamos los primeros días para asegurar que todo funcione perfectamente.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     TESTIMONIALS
+     ══════════════════════════════════ -->
+<section class="sec" id="testimonios">
+  <div class="container">
+    <div class="sec-hd">
+      <div class="tag rv"><i class="fas fa-star"></i> Testimonios</div>
+      <h2 class="rv d1">Lo que dicen nuestros<br><span class="gr-text">clientes satisfechos</span></h2>
+      <p class="rv d2">La confianza de nuestros clientes es nuestro mayor logro y motivación.</p>
+    </div>
+    <div class="testi-grid">
+
+      <div class="testi rv">
+        <div class="testi-q">"</div>
+        <p>WEBLY  transformó nuestra presencia digital. Las ventas aumentaron un 340% en los primeros 3 meses. ¡Trabajo impecable!</p>
+        <div class="testi-stars">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+        <div class="testi-author">
+          <div class="testi-av" style="background:linear-gradient(135deg,#0ea5e9,#7c3aed)">CR</div>
+          <div>
+            <div class="testi-name">Carlos Reyes</div>
+            <div class="testi-role">CEO, TechStore Pro</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi rv d1">
+        <div class="testi-q">"</div>
+        <p>Profesionalismo de primer nivel. Entregaron mi landing page antes del plazo con una calidad que superó todas mis expectativas.</p>
+        <div class="testi-stars">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+        <div class="testi-author">
+          <div class="testi-av" style="background:linear-gradient(135deg,#a855f7,#ec4899)">MG</div>
+          <div>
+            <div class="testi-name">María González</div>
+            <div class="testi-role">Directora, InnovateMX</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi rv d2">
+        <div class="testi-q">"</div>
+        <p>Desarrollaron el sistema de reservaciones exactamente como lo necesitaba. El soporte post-entrega es extraordinario y muy rápido.</p>
+        <div class="testi-stars">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+        <div class="testi-author">
+          <div class="testi-av" style="background:linear-gradient(135deg,#22c55e,#0ea5e9)">DM</div>
+          <div>
+            <div class="testi-name">Dr. Diego Mora</div>
+            <div class="testi-role">Director, Clínica Digital 360</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi rv d1">
+        <div class="testi-q">"</div>
+        <p>Diseño elegante, carga ultrarrápida y mis clientes no paran de felicitarme. La mejor inversión que he hecho para mi marca.</p>
+        <div class="testi-stars">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+        <div class="testi-author">
+          <div class="testi-av" style="background:linear-gradient(135deg,#f87171,#fb923c)">SV</div>
+          <div>
+            <div class="testi-name">Sofía Vargas</div>
+            <div class="testi-role">Fundadora, StyleMX Fashion</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi rv d2">
+        <div class="testi-q">"</div>
+        <p>Cuadruplicamos los leads de nuestra inmobiliaria. El proceso fue 100% transparente y la comunicación fue impecable desde el inicio.</p>
+        <div class="testi-stars">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+        <div class="testi-author">
+          <div class="testi-av" style="background:linear-gradient(135deg,#38bdf8,#22c55e)">RP</div>
+          <div>
+            <div class="testi-name">Roberto Peña</div>
+            <div class="testi-role">Gerente, Vertex Real Estate</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi rv d3">
+        <div class="testi-q">"</div>
+        <p>Ahora gestiono pedidos, reservas y menú digital desde un solo panel. Le dieron vida a mi visión con un resultado que me encanta.</p>
+        <div class="testi-stars">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+        <div class="testi-author">
+          <div class="testi-av" style="background:linear-gradient(135deg,#fbbf24,#f97316)">AL</div>
+          <div>
+            <div class="testi-name">Ana López</div>
+            <div class="testi-role">Chef & Propietaria, GourmetChef</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     FAQ
+     ══════════════════════════════════ -->
+<section class="sec sec-alt" id="faq">
+  <div class="container">
+    <div class="sec-hd">
+      <div class="tag rv"><i class="fas fa-circle-question"></i> Preguntas Frecuentes</div>
+      <h2 class="rv d1">Resolvemos todas<br><span class="gr-text">tus dudas</span></h2>
+    </div>
+    <div class="faq-list rv">
+      <div class="faq-item">
+        <button class="faq-q">¿Cuánto tiempo tarda en entregarse mi sitio web?<div class="faq-ic"><i class="fas fa-plus"></i></div></button>
+        <div class="faq-ans"><div class="faq-ans-in">El tiempo de entrega varía según el plan. El Plan Básico se entrega en 5–7 días hábiles, el Profesional en 10–15 días y el Empresarial en 20–30 días. Siempre cumplimos con los plazos acordados y te mantenemos informado durante todo el proceso.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">¿Necesito tener hosting y dominio propios?<div class="faq-ic"><i class="fas fa-plus"></i></div></button>
+        <div class="faq-ans"><div class="faq-ans-in">No es obligatorio. Podemos asesorarte y ayudarte a adquirir tu hosting y dominio, o trabajar con los que ya tengas. Nos adaptamos completamente para que el proceso sea sencillo y sin estrés.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">¿Puedo actualizar el contenido de mi sitio yo mismo?<div class="faq-ic"><i class="fas fa-plus"></i></div></button>
+        <div class="faq-ans"><div class="faq-ans-in">¡Sí! Los planes Profesional y Empresarial incluyen un panel de administración intuitivo donde podrás actualizar textos, imágenes y contenido sin conocimientos técnicos. Además ofrecemos capacitación incluida.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">¿Qué incluye el mantenimiento y soporte?<div class="faq-ic"><i class="fas fa-plus"></i></div></button>
+        <div class="faq-ans"><div class="faq-ans-in">El soporte incluye actualizaciones de seguridad, corrección de errores, backups periódicos, optimización de velocidad y atención técnica por chat, email y WhatsApp. El tiempo de respuesta varía según el plan contratado.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">¿Mi sitio web aparecerá en Google?<div class="faq-ic"><i class="fas fa-plus"></i></div></button>
+        <div class="faq-ans"><div class="faq-ans-in">Todos nuestros sitios se construyen con las mejores prácticas de SEO técnico. Los planes Profesional y Empresarial incluyen optimización SEO avanzada. El posicionamiento también depende de factores externos, pero partimos con la mejor base posible.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">¿Trabajan con clientes de cualquier país?<div class="faq-ic"><i class="fas fa-plus"></i></div></button>
+        <div class="faq-ans"><div class="faq-ans-in">Sí, trabajamos de forma 100% remota con clientes de México, Estados Unidos, España y toda Latinoamérica. Nos comunicamos por videollamada, WhatsApp y email para una colaboración efectiva sin importar la ubicación.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">¿Cuáles son las formas de pago?<div class="faq-ic"><i class="fas fa-plus"></i></div></button>
+        <div class="faq-ans"><div class="faq-ans-in">Aceptamos transferencia bancaria, PayPal, tarjeta de crédito/débito y criptomonedas. Trabajamos con un esquema de 50% de anticipo y 50% contra entrega para tu tranquilidad total.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     CTA FINAL
+     ══════════════════════════════════ -->
+<section class="sec" id="contacto">
+  <div class="container">
+    <div class="cta-box rv">
+      <div class="tag" style="justify-content:center;margin-bottom:22px">
+        <i class="fas fa-bolt"></i> Empieza Hoy Mismo
+      </div>
+      <h2>
+        ¿Listo para tener una página web que<br>
+        <span class="gr-text">impulse tu negocio?</span>
+      </h2>
+      <p>Únete a más de 100 empresas que ya confían en <strong>WebPro Studio</strong> para transformar su presencia digital y multiplicar sus ventas.</p>
+      <div class="cta-btns">
+        <a href="mailto:contacto@webprostudio.com" class="btn btn-prim">
+          <i class="fas fa-paper-plane"></i> Solicitar Cotización Gratis
+        </a>
+        <a href="https://wa.me/524191036068?text=Hola%2C%20me%20interesa%20una%20cotizaci%C3%B3n%20para%20mi%20sitio%20web" target="_blank" rel="noopener" class="btn btn-wa">
+          <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     FOOTER
+     ══════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="ft-grid">
+      <div>
+        <!-- ★ EDIT AGENCY NAME HERE ★ -->
+        <div class="ft-logo">WEBLY</div>
+        <p class="ft-desc">Transformamos ideas en sitios web que generan clientes. Tu aliado estratégico para dominar el mundo digital con profesionalismo y resultados reales.</p>
+        <div class="ft-social">
+          <a href="#" class="ft-sc" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="ft-sc" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="ft-sc" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="ft-sc" aria-label="Twitter/X"><i class="fab fa-x-twitter"></i></a>
+          <a href="#" class="ft-sc" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="ft-col">
+        <h4>Servicios</h4>
+        <ul class="ft-links">
+          <li><a href="#servicios">Diseño Web</a></li>
+          <li><a href="#servicios">Tiendas Online</a></li>
+          <li><a href="#servicios">Landing Pages</a></li>
+          <li><a href="#servicios">Sistemas Empresariales</a></li>
+          <li><a href="#servicios">Optimización SEO</a></li>
+          <li><a href="#servicios">Mantenimiento</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h4>Empresa</h4>
+        <ul class="ft-links">
+          <li><a href="#portafolio">Portafolio</a></li>
+          <li><a href="#planes">Planes</a></li>
+          <li><a href="#proceso">Proceso</a></li>
+          <li><a href="#testimonios">Testimonios</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h4>Contacto</h4>
+        <div class="ft-contact">
+          <a href="mailto:audir761@gmail.com.com" class="ft-ci">
+            <i class="fas fa-envelope"></i> audir761@gmail.com
+          </a>
+          <a href="https://wa.me/524191036068" class="ft-ci" target="_blank" rel="noopener">
+            <i class="fab fa-whatsapp"></i> +52 419 103 6068
+          </a>
+          <div class="ft-ci">
+            <i class="fas fa-map-marker-alt"></i> México · España · LATAM
+          </div>
+          <div class="ft-ci">
+            <i class="fas fa-clock"></i> Lun–Vie: 9:00 – 18:00 CST
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ft-bot">
+      <div class="ft-copy" id="copyright">© 2025 WebPro Studio. Todos los derechos reservados.</div>
+      <div class="ft-bot-links">
+        <a href="#">Privacidad</a>
+        <a href="#">Términos</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════
+     JAVASCRIPT
+     ══════════════════════════════════ -->
+<script>
+/* ══════════════════════════════════════
+   ★  AGENCY CONFIGURATION — EDIT HERE  ★
+   ══════════════════════════════════════ */
+const AGENCY = {
+  name:         "WebPro Studio",
+  email:        "contacto@webprostudio.com",
+  whatsapp:     "5219999999999",
+  whatsappText: "Hola, me interesa una cotización para mi sitio web"
+};
+
+/* ═══ Dynamic copyright year ═══ */
+const yr = new Date().getFullYear();
+document.getElementById('copyright').textContent =
+  `© ${yr} ${AGENCY.name}. Todos los derechos reservados.`;
+
+/* ═══ Navbar scroll ═══ */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () =>
+  nav.classList.toggle('scrolled', window.scrollY > 50), {passive:true});
+
+/* ═══ Mobile menu ═══ */
+const ham = document.getElementById('ham');
+const mob = document.getElementById('mob');
+const mobClose = document.getElementById('mobClose');
+
+ham.addEventListener('click', () => { const isOpen = mob.classList.toggle('open'); document.body.style.overflow = isOpen ? 'hidden' : ''; });
+const closeMob = () => { mob.classList.remove('open'); document.body.style.overflow=''; };
+mobClose.addEventListener('click', closeMob);
+document.querySelectorAll('.mob-lnk, .mob a').forEach(a => a.addEventListener('click', closeMob));
+
+/* ═══ Scroll reveal ═══ */
+const rvObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('on'); });
+}, { threshold:.1, rootMargin:'0px 0px -40px 0px' });
+document.querySelectorAll('.rv').forEach(el => rvObs.observe(el));
+
+/* ═══ Counter animation ═══ */
+function animateCount(el, target, prefix='', suffix='') {
+  const dur = 2200, start = performance.now();
+  const frame = (now) => {
+    const p = Math.min((now - start) / dur, 1);
+    const ease = 1 - Math.pow(1 - p, 3);
+    el.textContent = prefix + Math.round(target * ease) + suffix;
+    if(p < 1) requestAnimationFrame(frame);
+  };
+  requestAnimationFrame(frame);
+}
+const cntObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(!e.isIntersecting) return;
+    const el = e.target;
+    const t = +el.dataset.target;
+    if(isNaN(t)) return;
+    animateCount(el, t, el.dataset.prefix||'', el.dataset.suffix||'');
+    cntObs.unobserve(el);
+  });
+}, { threshold:.5 });
+document.querySelectorAll('[data-target]').forEach(el => cntObs.observe(el));
+
+/* ═══ Process line animation ═══ */
+const fill = document.getElementById('procFill');
+if(fill) {
+  new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if(e.isIntersecting) setTimeout(() => fill.style.height='100%', 300);
+    });
+  }, {threshold:.1}).observe(fill.parentElement);
+}
+
+/* ═══ FAQ accordion ═══ */
+document.querySelectorAll('.faq-item').forEach(item => {
+  item.querySelector('.faq-q').addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-ans').style.maxHeight = '0';
+    });
+    if(!isOpen) {
+      item.classList.add('open');
+      const ans = item.querySelector('.faq-ans');
+      ans.style.maxHeight = ans.scrollHeight + 'px';
+    }
+  });
+});
+
+/* ═══ Smooth scroll ═══ */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const h = a.getAttribute('href');
+    if(h === '#') return;
+    const t = document.querySelector(h);
+    if(!t) return;
+    e.preventDefault();
+    window.scrollTo({ top: t.getBoundingClientRect().top + window.pageYOffset - 78, behavior:'smooth' });
+  });
+});
+
+/* ═══ Active nav link ═══ */
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  sections.forEach(s => { if(window.scrollY >= s.offsetTop - 110) cur = s.id; });
+  navLinks.forEach(a => {
+    a.style.color = a.getAttribute('href') === `#${cur}` ? 'var(--brand-primary)' : '';
+  });
+}, {passive:true});
+</script>
+</body>
+</html>
